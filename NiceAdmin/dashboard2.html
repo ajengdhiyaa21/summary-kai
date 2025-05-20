@@ -109,7 +109,7 @@
         </a>
         <ul id="laporan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a data-bs-target="#pendaparab-nav" data-bs-toggle="collapse" href="#">
+            <a href="pendapatan.html">
               <i class="bi bi-circle"></i><span>Pendapatan</span>
             </a>
           </li>
@@ -121,6 +121,11 @@
           <li>
             <a href="labarugi.html">
               <i class="bi bi-circle"></i><span>Laba/Rugi</span>
+            </a>
+          </li>
+          <li>
+            <a href="investasi.html">
+              <i class="bi bi-circle"></i><span>Investasi</span>
             </a>
           </li>
         </ul>
@@ -743,173 +748,317 @@
           </div>
         </div><!-- End Kas -->
 
-        <!-- Kas di Bank -->
-        <div class="col-xxl-2 col-md-6" style="width: max-content;">
-          <div class="card info-card sales-card" style="height: 200px;">
-            <div class="card-body" style="height: 100%;">
-              <h5 class="card-title">Serapan RKA </h5>
-              <div class="d-flex align-items-center">
-                <h6 style="font-size: 30px; align-items: center;">93.64%</h6>
-              </div>
-              <div class="d-flex align-items-center">
-                <p style="font-size: 15px;align-items: center;">Rp489.32M/Rp522.55M</p>
-              </div>
-            </div>
-          </div>
-        </div><!-- End Kas di Bank -->
+        <div class="d-flex" style="gap: 10px; align-items: stretch;">
 
-        <!-- Modal -->
-        <div class="col-xxl-10 col-md-8" style="width: 80.5%;">
-          <div class="card info-card sales-card" style="height: 200px;">
-            <div class="card-body">
-              <h5 class="card-title">Diagram Batang</h5>
-              <div id="chartDiagramBatang" style="min-height: 200px;"></div>
-            </div>
+  <!-- Kartu Serapan RKA -->
+  <div class="card info-card" style="width: 250px; height: 420px;">
+    <div class="card-body d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
+      <h5 class="card-title">Serapan RKA</h5>
+      <h2 style="font-size: 45px; font-weight: bold;">93.64%</h2>
+      <p style="font-size: 18px;">Rp489.32M / Rp522.55M</p>
+    </div>
+  </div>
+
+  <!-- Grafik Batang -->
+  <div class="card info-card flex-grow-1" style="height: 420px;">
+    <div class="card-body">
+      <h5 class="card-title">Consume per RKA per Unit</h5>
+      <div id="chartDiagramBatang" style="min-height: 380px;"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ApexCharts -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const categoriesDiagramBatang = [
+      'Angkutan Barang', 'Aset', 'Bangunan', 'Hukum', 'Humaszd',
+      'Jalan Rel & Jembatan', 'Kesehatan', 'Keuangan', 'Listrik, Air dan Akses',
+      'Operasi', 'Fasilitas Penumpang', 'Angkutan Penumpang',
+      'Pengadaan Barang dan Jasa', 'Pengamanan Objek Vital dan Akses',
+      'Pengamanan Operasional KA', 'Pengusahaan Akses', 'Sarana',
+      'SDM dan Umum', 'Sintel', 'Sistem Informasi'
+    ];
+
+    const dataDiagramBatang = [
+      95.21, 95.34, 93.39, 31.37, 74.30,
+      95.96, 88.93, 81.44, 98.43, 87.89,
+      97.77, 91.75, 77.13, 99.40, 68.70,
+      83.72, 90.20, 91.65, 96.33, 91.83
+    ];
+
+    const optionsDiagramBatang = {
+      series: [{
+        name: 'Realisasi',
+        data: dataDiagramBatang
+      }],
+      chart: {
+        type: 'bar',
+        height: 380,
+        toolbar: { show: false }
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '90%', // makin lebar
+          endingShape: 'rounded'
+        }
+      },
+      dataLabels: {
+  enabled: true,
+  position: 'top', // Posisi label di atas batang
+  offsetY: -15,    // Angkat label lebih ke atas
+  style: {
+    fontSize: '12px',
+    fontWeight: 'bold',
+    colors: ['#000'] // Warna hitam
+  },
+  formatter: function (val) {
+    return val.toFixed(2) + '%';
+  }
+},
+      stroke: { show: false },
+      xaxis: {
+        categories: categoriesDiagramBatang,
+        labels: {
+          rotate: -45,
+          style: {
+            fontSize: '10px'
+          }
+        }
+      },
+      yaxis: { show: false },
+      fill: {
+        colors: ['#4CAF50'],
+        opacity: 1
+      },
+      tooltip: {
+        y: {
+          formatter: val => val.toFixed(2) + '%'
+        }
+      }
+    };
+
+    const chartDiagramBatang = new ApexCharts(document.querySelector("#chartDiagramBatang"), optionsDiagramBatang);
+    chartDiagramBatang.render();
+  });
+</script>
+
+<div class="container py-4">
+  <div class="row g-3">
+
+    <!-- Kolom Kiri: Overview Project Investasi -->
+    <div class="col-md-4 d-flex">
+      <div class="card p-3 w-100">
+        <h6><strong>Overview Project Investasi</strong></h6>
+        <h2 class="fw-bold">23</h2>
+        <p>Total Project</p>
+        <small><strong>Pembayaran / Nilai Kontrak</strong></small>
+        <p>27,049,087,710 / 58,522,126,331</p>
+        <div class="progress bg-light" style="height: 10px;">
+          <div class="progress-bar bg-success" style="width: 46.22%;"></div>
+        </div>
+        <div class="text-end mt-1 fw-bold">46.22%</div>
+      </div>
+    </div>
+
+    <!-- Kolom Tengah: Prasarana dan Bangunan -->
+    <div class="col-md-4">
+      <!-- Prasarana -->
+      <div class="mb-3">
+        <div class="card p-3 w-100">
+          <h6><strong>Project Investasi Prasarana</strong></h6>
+          <p>17 Total Project</p>
+          <small>(73.91% dari total project)</small>
+          <div class="progress bg-light mt-2" style="height: 10px;">
+            <div class="progress-bar bg-success" style="width: 82.44%;"></div>
+          </div>
+          <div class="text-end mt-1 fw-bold">82.44%</div>
+        </div>
+      </div>
+      <!-- Bangunan -->
+      <div>
+        <div class="card p-3 w-100">
+          <h6><strong>Project Investasi Bangunan</strong></h6>
+          <p>6 Total Project</p>
+          <small>(26.09% dari total project)</small>
+          <div class="progress bg-light mt-2" style="height: 10px;">
+            <div class="progress-bar bg-success" style="width: 64.10%;"></div>
+          </div>
+          <div class="text-end mt-1 fw-bold">64.10%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kolom Kanan: Status Project Investasi -->
+    <div class="col-md-4 d-flex">
+      <div class="card p-3 w-100">
+        <h6><strong>Status Project Investasi</strong></h6>
+        <div class="d-flex justify-content-around align-items-end" style="height: 140px;">
+          <!-- Administrative -->
+          <div class="text-center">
+            <div class="fw-bold">1<br>(4.35%)</div>
+            <div style="height: 20px; width: 14px; background-color: #c4e3cb; margin: 4px auto;"></div>
+            <small>Administrative</small>
+          </div>
+          <!-- Completed -->
+          <div class="text-center">
+            <div class="fw-bold">8<br>(34.78%)</div>
+            <div style="height: 50px; width: 14px; background-color: #6cc76f; margin: 4px auto;"></div>
+            <small>Completed</small>
+          </div>
+          <!-- In Progress -->
+          <div class="text-center">
+            <div class="fw-bold">14<br>(60.87%)</div>
+            <div style="height: 80px; width: 14px; background-color: #26723b; margin: 4px auto;"></div>
+            <small>In Progress</small>
           </div>
         </div>
+      </div>
+    </div>
 
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const categoriesDiagramBatang = ['Asset', 'Angkutan Barang', 'Bangunan', 'Hukum', 'Kesehatan', 'Keuangan', 'Operasi', 'Fasilitas Penumpang', 'Sarana', 'Sistem Informasi'];
-            const dataDiagramBatang = [93, 70, 78, 62, 54, 85, 73, 65, 57, 80];
-
-            const optionsDiagramBatang = {
-              series: [
-                {
-                  name: 'prog 2025',
-                  data: [90, 65, 70, 60, 50, 80, 70, 60, 55, 75]
-                },
-                {
-                  name: 'real 2025',
-                  data: [93, 70, 78, 62, 54, 85, 73, 65, 57, 80]
-                }
-              ],
-              chart: {
-                type: 'bar',
-                height: 200
-              },
-              plotOptions: {
-                bar: {
-                  horizontal: false,
-                  columnWidth: '55%',
-                  endingShape: 'rounded'
-                },
-              },
-              dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                  return val + '%';
-                },
-                style: {
-                  colors: ['#fff']
-                }
-              },
-              stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-              },
-              xaxis: {
-                categories: categoriesDiagramBatang,
-                labels: {
-                  rotate: -45,
-                  style: {
-                    fontSize: '10px'
-                  }
-                }
-              },
-              yaxis: {
-                show: false
-              },
-                fill: {
-                  opacity: 1,
-                  colors: ['rgb(75, 192, 192)', 'rgb(255, 99, 132)']
-                },
-              tooltip: {
-                y: {
-                  formatter: function (val) {
-                    return val + '%';
-                  }
-                }
-              }
-            };
-
-            const chartDiagramBatang = new ApexCharts(document.querySelector("#chartDiagramBatang"), optionsDiagramBatang);
-            chartDiagramBatang.render();
-          });
-        </script>
-
-        <!-- Pendapatan Diterima Dimuka-->
-        <div class="col-xxl-4 col-xl-6">
-
-          <div class="card info-card deviden-card" style="width: fit-content;">
-
-            <div class="card-body">
-              <h5 class="card-title">Total Kewajiban <span>| 13 Januari 2025</span></h5>
-
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="ri-hand-coin-line"></i>
-                </div>
-                <div class="ps-3">
-                  <h6 style="font-size: 20px;">Rp. 745.268.000</h6>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div><!-- End Pendapatan Diterima Dimuka  -->
-
+  </div>
+</div>
 
         <!-- Investasi -->
-        <div class="col-xxl-4 col-xl-6">
+       <title>Rincian Project Investasi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .table th {
+      background-color: #689F38;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    
+    .container-fluid {
+      padding: 2rem;
+    }
+    .card {
+      border-radius: 12px;
+      border: none;
+    }
+   
+    th, td {
+      word-wrap: break-word;
+    }
+  </style>
 
-          <div class="card info-card revenue-card" style="width: fit-content;">
-
-            <div class="card-body">
-              <h5 class="card-title">Total Biaya <span>| 13 Januari 2025</span></h5>
-
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-currency-bitcoin"></i>
-                </div>
-                <div class="ps-3">
-                  <h6 style="font-size: 20px;">Rp. 543.000.000</h6>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div><!-- End Investasi -->
 
 
-        <!-- Pendapatan Lain - Lain -->
-        <div class="col-xxl-4 col-xl-6">
-
-          <div class="card info-card sales-card">
-
-            <div class="card-body">
-              <h5 class="card-title"> Pendapatan Project <span>| 13 Januari 2025</span></h5>
-
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-lightning"></i>
-                </div>
-                <div class="ps-3">
-                  <h6 style="font-size: 20px;">Rp 647.000.000</h6>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div><!-- End Pendapatan Lain - Lain  -->
-
+<div class="container-fluid">
+  <div class="card shadow p-4">
+    <h5 class="card-title text-center mb-4">Rincian Project Investasi</h5>
+    <table class="table table-bordered align-middle text-center w-100">
+      <thead>
+        <tr>
+          <th>Final</th>
+          <th>Vendor</th>
+          <th>Status</th>
+          <th>Administrative</th>
+          <th>Nilai Kontrak</th>
+          <th>Total Pembayaran</th>
+          <th>Progress Pembayaran</th>
+          <th>Rencana</th>
+          <th>Realisasi</th>
+          <th>Deviasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-start">PEMBANGUNAN GEDUNG KANTOR UPT RESOR SINTEL 1.13 JATINEGARA & 1.8 MANGGARAI</td>
+          <td>PT GIRI ANGGUN AMERTA</td>
+          <td>Completed</td>
+          <td>Completed</td>
+          <td>3,304,814,769</td>
+          <td>1,652,407,385</td>
+          <td>50.00%</td>
+          <td>100.00%</td>
+          <td>100.00%</td>
+          <td>0.00%</td>
+        </tr>
+        <tr>
+          <td class="text-start">PEMBANGUNAN GEDUNG UPT RESOR SINTEL 1.16 KARAWANG</td>
+          <td>PT GIRI ANGGUN AMERTA</td>
+          <td>Completed</td>
+          <td>Completed</td>
+          <td>1,682,329,862</td>
+          <td>1,682,329,862</td>
+          <td>100.00%</td>
+          <td>100.00%</td>
+          <td>100.00%</td>
+          <td>0.00%</td>
+        </tr>
+        <tr>
+          <td class="text-start">PEMBANGUNAN GEDUNG UPT RESOR SINTEL 1.18 PASAR MINGGU, LAA 1.11 PASARMINGGU, SINTEL 1.22 CIBADAK</td>
+          <td>PT KAPM</td>
+          <td>Completed</td>
+          <td>Completed</td>
+          <td>4,175,517,900</td>
+          <td>4,175,517,900</td>
+          <td>100.00%</td>
+          <td>100.00%</td>
+          <td>100.00%</td>
+          <td>0.00%</td>
+        </tr>
+        <tr>
+          <td class="text-start">PEMBANGUNAN KANTOR UPT RESOR LAA 1.5 DURI & LAA 1.7 PASARSENEN</td>
+          <td>PT BANGUN TRANS PUSAKA</td>
+          <td>Completed</td>
+          <td>Completed</td>
+          <td>3,326,365,104</td>
+          <td>3,326,365,104</td>
+          <td>100.00%</td>
+          <td>100.00%</td>
+          <td>100.00%</td>
+          <td>0.00%</td>
+        </tr>
+        <tr>
+          <td class="text-start">PEMBANGUNAN KANTOR UPT CREW KA RANGKASBITUNG</td>
+          <td>PT. KARUNIA PUTRA SEKA..</td>
+          <td>In Progress</td>
+          <td>In Progress</td>
+          <td>1,674,983,030</td>
+          <td>0</td>
+          <td>Null</td>
+          <td>97.76%</td>
+          <td>98.52%</td>
+          <td>0.76%</td>
+        </tr>
+        <tr>
+          <td class="text-start">PENINGKATAN FASILITAS PENDINGIN RUANGAN HALL STASIUN PASAR SENEN</td>
+          <td>PT KAPM</td>
+          <td>In Progress</td>
+          <td>In Progress</td>
+          <td>5,797,576,694</td>
+          <td>4,174,201,219</td>
+          <td>72.00%</td>
+          <td>97.51%</td>
+          <td>96.54%</td>
+          <td>-0.97%</td>
+        </tr>
+        <tr>
+          <td class="text-start">PENINGKATAN FASILITAS ESKALATOR DI UNDERPASS STASIUN PASAR SENEN</td>
+          <td>PT KAPM</td>
+          <td>In Progress</td>
+          <td>In Progress</td>
+          <td>14,116,623,000</td>
+          <td>8,469,973,800</td>
+          <td>60.00%</td>
+          <td>92.50%</td>
+          <td>91.58%</td>
+          <td>-0.92%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
         <!-- Column Chart --

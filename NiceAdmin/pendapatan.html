@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Data Pendapatan - Summary Laporan</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/logo kai.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet"
+  />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    #sidebar {
+      background-color: #000080 !important;
+    }
+
+    /* Sidebar nav links default */
+    #sidebar .nav-link,
+    #sidebar .nav-link.collapsed {
+      background-color: white !important;
+      color: #000 !important;
+    }
+
+    /* Sidebar nav links hover and focus */
+    #sidebar .nav-link:hover,
+    #sidebar .nav-link:focus {
+      background-color: #f0f0f0 !important;
+      color: #000 !important;
+    }
+
+    /* Sidebar nested nav links for Pendapatan, Beban, Laba/Rugi */
+    #sidebar .nav-content a span {
+      color: white !important;
+    }
+
+    #sidebar .nav-content a:hover span,
+    #sidebar .nav-content a:focus span {
+      color: white !important;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #689f38;
+      color: white;
+    }
+
+    td.text-start {
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo kai.png" alt="">
+        <span class="d-none d-lg-block"></span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn" style="margin-left: 0px;"></i>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard2.html">
+              <i class="bi bi-grid"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#laporan-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Laporan</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="laporan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="pendapatan.html" class="active">
+              <i class="bi bi-circle"></i><span>Pendapatan</span>
+            </a>
+          </li>
+          <li>
+            <a href="beban.html">
+              <i class="bi bi-circle"></i><span>Beban</span>
+            </a>
+          </li>
+          <li>
+            <a href="labarugi.html">
+              <i class="bi bi-circle"></i><span>Laba/Rugi</span>
+            </a>
+          </li>
+          <li>
+            <a href="investasi.html">
+              <i class="bi bi-circle"></i><span>Investasi</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pengaturan.html">
+          <i class="bi bi-gear"></i>
+          <span>Pengaturan</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Data Pendapatan</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="dashboard2.html">Home</a></li>
+          <li class="breadcrumb-item active">Pendapatan</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container-fluid">
+      <div class="card shadow p-4">
+        <h5 class="card-title text-center mb-4">Laporan Laba Rugi Komprehensif - Pendapatan</h5>
+        <table class="table table-bordered align-middle text-center w-100">
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>U R A I A N</th>
+              <th>2024 REALISASI</th>
+              <th>2025 ANGGARAN</th>
+              <th>2025 REALISASI</th>
+              <th>ANALISIS</th>
+              <th>% ACH</th>
+              <th>% GROWTH</th>
+              <th>ANALISIS VERTICAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="text-start">Angkutan KA Penumpang</td>
+              <td>507,778,782,000</td>
+              <td>584,654,885,000</td>
+              <td>572,482,886,274</td>
+              <td>2,031,365,759</td>
+              <td>97.92</td>
+              <td>12.74</td>
+              <td>83.86</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="text-start">Angkutan KA Barang</td>
+              <td>18,551,268,263</td>
+              <td>20,393,654,985</td>
+              <td>22,778,918,810</td>
+              <td>66,252,182</td>
+              <td>111.70</td>
+              <td>22.79</td>
+              <td>34.38</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="text-start">Pendapatan Pendukung Angkutan KA</td>
+              <td>10,872,758,521</td>
+              <td>11,611,416,486</td>
+              <td>10,508,418,000</td>
+              <td>34,889,116</td>
+              <td>90.50</td>
+              <td>-3.35</td>
+              <td>30.12</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="text-start">Non Angkutan KA</td>
+              <td>23,305,274,726</td>
+              <td>33,131,653,075</td>
+              <td>39,483,835,312</td>
+              <td>117,060,039</td>
+              <td>119.17</td>
+              <td>69.42</td>
+              <td>33.73</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="text-start">Kompensasi Pemerintah (PSO-IMO-KA Perintis)</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

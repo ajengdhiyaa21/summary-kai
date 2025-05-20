@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Data Beban - Summary Laporan</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/logo kai.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet"
+  />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    #sidebar {
+      background-color: #000080 !important;
+    }
+
+    /* Sidebar nav links default */
+    #sidebar .nav-link,
+    #sidebar .nav-link.collapsed {
+      background-color: white !important;
+      color: #000 !important;
+    }
+
+    /* Sidebar nav links hover and focus */
+    #sidebar .nav-link:hover,
+    #sidebar .nav-link:focus {
+      background-color: #f0f0f0 !important;
+      color: #000 !important;
+    }
+
+    /* Sidebar nested nav links for Pendapatan, Beban, Laba/Rugi */
+    #sidebar .nav-content a span {
+      color: white !important;
+    }
+
+    #sidebar .nav-content a:hover span,
+    #sidebar .nav-content a:focus span {
+      color: white !important;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #689f38;
+      color: white;
+    }
+
+    td.text-start {
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo kai.png" alt="" />
+        <span class="d-none d-lg-block"></span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn" style="margin-left: 0px;"></i>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center"></ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard2.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#laporan-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Laporan</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="laporan-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="pendapatan.html">
+              <i class="bi bi-circle"></i><span>Pendapatan</span>
+            </a>
+          </li>
+          <li>
+            <a href="beban.html" class="active">
+              <i class="bi bi-circle"></i><span>Beban</span>
+            </a>
+          </li>
+          <li>
+            <a href="labarugi.html">
+              <i class="bi bi-circle"></i><span>Laba/Rugi</span>
+            </a>
+          </li>
+          <li>
+            <a href="investasi.html">
+              <i class="bi bi-circle"></i><span>Investasi</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pengaturan.html">
+          <i class="bi bi-gear"></i>
+          <span>Pengaturan</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Data Beban</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="dashboard2.html">Home</a></li>
+          <li class="breadcrumb-item active">Beban</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container-fluid">
+      <div class="card shadow p-4">
+        <h5 class="card-title text-center mb-4">Laporan Laba Rugi Komprehensif - Beban</h5>
+        <table class="table table-bordered align-middle text-center w-100">
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>U R A I A N</th>
+              <th>2024 REALISASI</th>
+              <th>2025 ANGGARAN</th>
+              <th>2025 REALISASI</th>
+              <th>ANALISIS</th>
+              <th>% ACH</th>
+              <th>% GROWTH</th>
+              <th>ANALISIS VERTICAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="text-start">Pegawai</td>
+              <td>124,823,650,200</td>
+              <td>138,359,996,256</td>
+              <td>134,659,640,597</td>
+              <td>410,748,043</td>
+              <td>97.33</td>
+              <td>7.88</td>
+              <td>41.68</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="text-start">BBM dan LLA</td>
+              <td>47,437,445,191</td>
+              <td>57,213,192,622</td>
+              <td>57,359,824,481</td>
+              <td>172,631,108</td>
+              <td>100.26</td>
+              <td>20.92</td>
+              <td>33.23</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="text-start">Perawatan (Sarana dan Prasarana)</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="text-start">Sarana Perkeretaapian</td>
+              <td>13,465,716,249</td>
+              <td>12,691,713,309</td>
+              <td>12,925,379,012</td>
+              <td>38,456,321</td>
+              <td>101.84</td>
+              <td>-4.01</td>
+              <td>4.00</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="text-start">Bangunan (Stasiun & Bangunan Lainnya)</td>
+              <td>623,232,649</td>
+              <td>7,947,062,883</td>
+              <td>1,246,211,107</td>
+              <td>20,884,721</td>
+              <td>15.68</td>
+              <td>99.96</td>
+              <td>0.39</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="text-start">Prasarana Perkeretaapian</td>
+              <td>20,529,395,097</td>
+              <td>24,107,233,306</td>
+              <td>19,851,342,967</td>
+              <td>139,032,481</td>
+              <td>82.35</td>
+              <td>-3.30</td>
+              <td>6.14</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td class="text-start">Penggunaan Prasarana (TAC)</td>
+              <td>29,585,575,420</td>
+              <td>22,739,672,480</td>
+              <td>22,739,672,480</td>
+              <td>69,475,034</td>
+              <td>100.00</td>
+              <td>-23.14</td>
+              <td>7.04</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td class="text-start">Penyusutan dan Amortisasi</td>
+              <td>31,106,537,292</td>
+              <td>33,338,009,362</td>
+              <td>40,611,572,808</td>
+              <td>100,014,028</td>
+              <td>121.82</td>
+              <td>30.56</td>
+              <td>12.57</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td class="text-start">Umum dan Administrasi</td>
+              <td>3,452,810,365</td>
+              <td>6,903,723,926</td>
+              <td>3,993,687,404</td>
+              <td>22,700,729</td>
+              <td>57.85</td>
+              <td>15.66</td>
+              <td>1.24</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td class="text-start">Operasi Lainnya</td>
+              <td>27,485,008,982</td>
+              <td>29,628,145,870</td>
+              <td>29,730,226,825</td>
+              <td>124,319,489</td>
+              <td>100.34</td>
+              <td>8.17</td>
+              <td>9.20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

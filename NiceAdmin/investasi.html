@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Data Investasi - Summary Laporan</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/logo kai.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet"
+  />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    #sidebar {
+      background-color: #000080 !important;
+    }
+
+    /* Sidebar nav links default */
+    #sidebar .nav-link,
+    #sidebar .nav-link.collapsed {
+      background-color: white !important;
+      color: #000 !important;
+    }
+
+    /* Sidebar nav links hover and focus */
+    #sidebar .nav-link:hover,
+    #sidebar .nav-link:focus {
+      background-color: #f0f0f0 !important;
+      color: #000 !important;
+    }
+
+    /* Sidebar nested nav links for Pendapatan, Beban, Laba/Rugi */
+    #sidebar .nav-content a span {
+      color: white !important;
+    }
+
+    #sidebar .nav-content a:hover span,
+    #sidebar .nav-content a:focus span {
+      color: white !important;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      word-wrap: break-word;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #689f38;
+      color: white;
+    }
+
+    td.text-start {
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo kai.png" alt="">
+        <span class="d-none d-lg-block"></span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn" style="margin-left: 0px;"></i>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard2.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#laporan-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Laporan</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="laporan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="pendapatan.html">
+              <i class="bi bi-circle"></i><span>Pendapatan</span>
+            </a>
+          </li>
+          <li>
+            <a href="beban.html">
+              <i class="bi bi-circle"></i><span>Beban</span>
+            </a>
+          </li>
+          <li>
+            <a href="labarugi.html">
+              <i class="bi bi-circle"></i><span>Laba/Rugi</span>
+            </a>
+          </li>
+          <li>
+            <a href="investasi.html" class="active">
+              <i class="bi bi-circle"></i><span>Investasi</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pengaturan.html">
+          <i class="bi bi-gear"></i>
+          <span>Pengaturan</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Data Investasi</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="dashboard2.html">Home</a></li>
+          <li class="breadcrumb-item active">Investasi</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container-fluid">
+      <div class="card shadow p-4">
+        <h5 class="card-title text-center mb-4">Anggaran Investasi Bulan April Tahun 2025</h5>
+        <!-- Tabel data investasi lengkap dari investasi_files/sheet001.htm -->
+        <div style="overflow-x:auto;">
+          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;table-layout:auto; width: 100%; font-size: 12px;">
+            <col style="width: 36pt;" />
+            <col style="width: 150pt;" />
+            <col style="width: 100pt;" />
+            <col style="width: 120pt;" />
+            <col style="width: 70pt;" />
+            <col style="width: 50pt;" />
+            <col style="width: 100pt;" />
+            <col style="width: 100pt;" />
+            <col style="width: 120pt;" />
+            <col style="width: 90pt;" />
+            <col style="width: 100pt;" />
+            <col style="width: 90pt;" />
+            <col style="width: 90pt;" />
+            <col style="width: 100pt;" />
+            <col style="width: 110pt;" />
+            <col style="width: 150pt;" />
+            <col style="width: 90pt;" />
+            <col style="width: 90pt;" />
+            <col style="width: 90pt;" />
+            <col style="width: 120pt;" />
+            <tbody>
+            <tr style="height:23.25pt;">
+              <td colspan="20" style="height:23.25pt;">&nbsp;PT KERETA API INDONESIA (PERSERO)</td>
+            </tr>
+            <tr style="height:23.25pt;">
+              <td colspan="20" style="height:23.25pt;">&nbsp;ANGGARAN INVESTASI BULAN APRIL TAHUN 2025</td>
+            </tr>
+            <tr style="height:16.5pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:15.0pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:36.0pt;">
+              <th style="height:36.0pt; width:36pt;">NO</th>
+              <th style="width:383pt;">URAIAN</th>
+              <th style="width:137pt;">WBS</th>
+              <th style="width:171pt;">LOKASI PENGADAAN</th>
+              <th style="width:89pt;">VOLUME &amp; SATUAN</th>
+              <th style="width:64pt;">Satuan</th>
+              <th style="width:148pt;">HARGA SATUAN<br>(Rp)</th>
+              <th style="width:148pt;">JUMLAH DANA<br>(Rp)</th>
+              <th style="width:178pt;">BUDGET TAHUN 2024<br>(Rp)</th>
+              <th style="width:126pt;">TAMBAHAN DANA</th>
+              <th style="width:160pt;">TOTAL TAHUN 2024&nbsp;(Rp)</th>
+              <th style="width:153pt;">COMMITMENT</th>
+              <th style="width:153pt;">ACTUAL</th>
+              <th style="width:167pt;">CONSUMED BUDGET</th>
+              <th style="width:186pt;">AVAILABLE BUDGET</th>
+              <th style="width:268pt;">PROGRES SAAT INI</th>
+              <th style="width:127pt;">TANGGAL KONTRAK</th>
+              <th style="width:127pt;">NO KONTRAK</th>
+              <th style="width:127pt;">NILAI KONTRAK (Rp)</th>
+              <th style="width:171pt;">KET</th>
+            </tr>
+            <tr style="height:42.0pt;">
+              <td>1</td>
+              <td class="text-start">Beautifikasi Stasiun Yogyakarta Tahap 2</td>
+              <td>IBE.B0602501-02-02</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>38,357,439,859</td>
+              <td>38,357,439,859</td>
+              <td>38,357,439,859</td>
+              <td>-</td>
+              <td>38,357,439,859</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>38,357,439,859</td>
+              <td>Menunggu kelengkapan dokumen dri kantor pusat</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>belum ada keterangan</td>
+            </tr>
+            <tr style="height:42.0pt;">
+              <td>2</td>
+              <td class="text-start">Pembangunan Griya Karya Mustika DAOP 6 Yogyakarta</td>
+              <td>IBE.B0602501-03-07</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>7,446,760,600</td>
+              <td>7,446,760,600</td>
+              <td>7,446,760,600</td>
+              <td>-</td>
+              <td>7,446,760,600</td>
+              <td>7,446,760,600</td>
+              <td>-</td>
+              <td>7,446,760,600</td>
+              <td>-</td>
+              <td>SP3</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>SP3</td>
+            </tr>
+            <tr style="height:42.0pt;">
+              <td>3</td>
+              <td class="text-start">Revitalisasi Stasiun Solo Balapan Tahap 1</td>
+              <td>IBE.B0602501-02-01</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>12,661,722,500</td>
+              <td>12,661,722,500</td>
+              <td>12,661,722,500</td>
+              <td>-</td>
+              <td>12,661,722,500</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>12,661,722,500</td>
+              <td>Menunggu kelengkapan dokumen dri kantor pusat</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Menunggu kelengkapan dokumen dri kantor pusat</td>
+            </tr>
+            <tr style="height:42.0pt;">
+              <td>4</td>
+              <td class="text-start">Pembangunan Gedung Kantor Unit Fasilitas</td>
+              <td>IBE.B0602501-03-01</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>1,653,000,000</td>
+              <td>1,653,000,000</td>
+              <td>1,653,000,000</td>
+              <td>-</td>
+              <td>1,653,000,000</td>
+              <td>1,653,000,000</td>
+              <td>-</td>
+              <td>1,653,000,000</td>
+              <td>-</td>
+              <td>Proses HPS</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Permohonan Release PR</td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>5</td>
+              <td class="text-start">Pembangunan Gedung Kantor Baru UPT Resor JR 6.5 Brambanan</td>
+              <td>IBE.B0602501-03-02</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>1,271,175,100</td>
+              <td>1,271,175,100</td>
+              <td>1,271,175,100</td>
+              <td>-</td>
+              <td>1,271,175,100</td>
+              <td>878,972,325</td>
+              <td>376,702,429</td>
+              <td>1,255,674,754</td>
+              <td>15,500,346</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 49.606%<br>Progres Realisasi Komulatif : 55.46%</td>
+              <td>20-Dec-24</td>
+              <td>KL.702/XII/16/DO.6-2024</td>
+              <td>1,251,681,127</td>
+              <td></td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>6</td>
+              <td class="text-start">Pembangunan Gedung Kantor Baru UPT Resor JR 6.10 Sumberlawang</td>
+              <td>IBE.B0602501-03-03</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>1,345,481,300</td>
+              <td>1,345,481,300</td>
+              <td>1,345,481,300</td>
+              <td>-</td>
+              <td>1,345,481,300</td>
+              <td>930,986,651</td>
+              <td>398,994,282</td>
+              <td>1,329,980,933</td>
+              <td>15,500,367</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 49.606%<br>Progres Realisasi Komulatif : 55.46%</td>
+              <td>20-Dec-24</td>
+              <td>KL.702/XII/16/DO.6-2024</td>
+              <td>1,325,987,320</td>
+              <td></td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>7</td>
+              <td class="text-start">Pembangunan Gedung Kantor Baru UPT Resor JR 6.6 Klaten</td>
+              <td>IBE.B0602501-03-04</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>1,468,975,600</td>
+              <td>1,468,975,600</td>
+              <td>1,468,975,600</td>
+              <td>-</td>
+              <td>1,468,975,600</td>
+              <td>1,026,959,439</td>
+              <td>440,125,474</td>
+              <td>1,467,084,913</td>
+              <td>1,890,687</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 49.606%<br>Progres Realisasi Komulatif : 55.46%</td>
+              <td>20-Dec-24</td>
+              <td>KL.702/XII/16/DO.6-2024</td>
+              <td>1,475,072,153</td>
+              <td></td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>8</td>
+              <td class="text-start">Pembangunan Gedung Kantor UPT Resor Sintel 6.5 Klaten untuk Mendukung Pemeliharaan Sinyal dan Telekomunikasi di Daop 6 Yogyakarta</td>
+              <td>IBE.B0602501-03-05</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>777,495,835</td>
+              <td>777,495,835</td>
+              <td>777,495,835</td>
+              <td>-</td>
+              <td>777,495,835</td>
+              <td>539,640,825</td>
+              <td>231,274,639</td>
+              <td>770,915,464</td>
+              <td>6,580,371</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 25.82%<br>Progres Realisasi Komulatif : 48.663%</td>
+              <td>09-Jan-25</td>
+              <td>KL.702/I/10/DO.6-2025</td>
+              <td>770,915,465</td>
+              <td></td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>9</td>
+              <td class="text-start">Pembangunan Gedung Kantor UPT Resor LAA</td>
+              <td>IBE.B0602501-03-06</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>777,495,835</td>
+              <td>777,495,835</td>
+              <td>777,495,835</td>
+              <td>-</td>
+              <td>777,495,835</td>
+              <td>539,640,826</td>
+              <td>231,274,639</td>
+              <td>770,915,465</td>
+              <td>6,580,370</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 25.82%<br>Progres Realisasi Komulatif : 48.663%</td>
+              <td>09-Jan-25</td>
+              <td>KL.702/I/10/DO.6-2025</td>
+              <td>770,915,464</td>
+              <td></td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>10</td>
+              <td class="text-start">Pekerjaan Renovasi Interior Ruang Bimaloka Kantor Kadaop Deputy, dan Ruang Rapat Koordinasi Daop 6 Yogyakarta</td>
+              <td>IBE.B0602501-03-08</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>1,166,209,300</td>
+              <td>1,166,209,300</td>
+              <td>1,166,209,300</td>
+              <td>-</td>
+              <td>1,166,209,300</td>
+              <td>1,166,209,300</td>
+              <td>-</td>
+              <td>1,166,209,300</td>
+              <td>-</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Permohonan Release PR</td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>11</td>
+              <td class="text-start">Pengadaan 1 Set Electric Lifting Jack 4 x 15 Ton untuk Depo Kereta Yogyakarta</td>
+              <td>IBE.B0602501-04-01</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>1,625,000,000</td>
+              <td>1,625,000,000</td>
+              <td>1,625,000,000</td>
+              <td>-</td>
+              <td>1,625,000,000</td>
+              <td>1,623,000,000</td>
+              <td>-</td>
+              <td>1,623,000,000</td>
+              <td>2,000,000</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 26,1%<br>Progres Realisasi Komulatif : 33,7%</td>
+              <td>12-Mar-25</td>
+              <td>KL.702/III/8/DO.6-2025</td>
+              <td>1,623,000,000</td>
+              <td></td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>12</td>
+              <td class="text-start">Pengadaan 1 Set Electric Lifting Jack 4 x 15 Ton untuk Depo Kereta Solobalapan</td>
+              <td>IBE.B0602501-04-02</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>1,625,000,000</td>
+              <td>1,625,000,000</td>
+              <td>1,625,000,000</td>
+              <td>-</td>
+              <td>1,625,000,000</td>
+              <td>1,623,000,000</td>
+              <td>-</td>
+              <td>1,623,000,000</td>
+              <td>2,000,000</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 26,1%<br>Progres Realisasi Komulatif : 33,7%</td>
+              <td>12-Mar-25</td>
+              <td>KL.702/III/10/DO.6-2025</td>
+              <td>1,623,000,000</td>
+              <td></td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td>13</td>
+              <td class="text-start">Pengadaan 1 Set Rerailing Equipment untuk Depo Lokomotif Solobalapan</td>
+              <td>IBE.B0602501-04-03</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>2,550,000,000</td>
+              <td>2,550,000,000</td>
+              <td>2,550,000,000</td>
+              <td>-</td>
+              <td>2,550,000,000</td>
+              <td>2,538,000,000</td>
+              <td>-</td>
+              <td>2,538,000,000</td>
+              <td>12,000,000</td>
+              <td>Proses pengadaan<br>Progres Rencana Komulatif : 30,3%<br>Progres Realisasi Komulatif : 42,6%</td>
+              <td>12-Mar-25</td>
+              <td>KL.702/III/9/DO.6-2025</td>
+              <td>2,538,000,000</td>
+              <td></td>
+            </tr>
+            <tr style="height:133.5pt;">
+              <td>14</td>
+              <td class="text-start">Sertipikasi Tanah Daop 6 Yogyakarta</td>
+              <td>IBE.B0602501-05-01</td>
+              <td>Daop 6 Yk</td>
+              <td>1</td>
+              <td>Paket</td>
+              <td>9,460,989,780</td>
+              <td>9,460,989,780</td>
+              <td>9,460,989,780</td>
+              <td>-</td>
+              <td>9,460,989,780</td>
+              <td>1,000,760,111</td>
+              <td>439,533,578</td>
+              <td>1,440,293,689</td>
+              <td>8,020,696,091</td>
+              <td rowspan="2" style="vertical-align:top;">Desa Banyusari, Desa Kartoharjo, Desa Sidogede, Desa kalipucang Kec Grabag Kab Magelang- Sudah SPK dengan Notaris per 11/03/2025 nomor kontrak KL.702/III/6/DO.6-2025<br>- Pendaftaran sertifikat di BPN tgl 17 Maret 2024, <br>- Terbit peta bidang tanggal 21 Maret 2025<br>- Pengurusan PKKPR dan Pertek</td>
+              <td rowspan="2" style="vertical-align:top;"></td>
+              <td> </td>
+              <td> </td>
+              <td rowspan="2" style="vertical-align:top;">Koordinasi dengan Kanwil untuk percepatan</td>
+            </tr>
+            <tr style="height:75.0pt;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr style="height:204.0pt;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="vertical-align:top;">Desa Dagen Kec jaten kab karanganyar - Sudah SPK dengan Notaris per 11/03/2025 nomor kontrak KL.702/III/5/DO.6-2025<br>- Pendaftaran sertifikat di BPN tgl 12 Maret 2024, <br>- Telah terbit peta bidang tgl 14 Maret 2024<br>- Proses pengurusan PKKPR dan pendaftaran pertek selesai<br>- Sidang Panitia A tanggal 11 April 2025</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="vertical-align:top;">Koordinasi dengan BPKAD Karanganyar untuk membebasan BPHTB</td>
+            </tr>
+            <tr style="height:64.5pt;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td rowspan="2" style="vertical-align:top; border-bottom:2.0pt double black;">Desa Jetis, Desa Brujul Kec Jaten Kab Karanganyar'- Akan dilakukan relokasi program karena sebagian besar tanah masuk ke dalam ROW<br>- Rencana lokasi pengganti di Kabupaten Temanggung Lintas Secang - Parakan</td>
+              <td rowspan="2" style="vertical-align:top; border-bottom:2.0pt double black;"></td>
+              <td></td>
+              <td></td>
+              <td rowspan="2" style="vertical-align:top; border-bottom:2.0pt double black;">Koordinasi dengan BPN Temanggung untuk praukur</td>
+            </tr>
+            <tr style="height:78.0pt;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr style="height:35.25pt;">
+              <td></td>
+              <td class="text-start">Total</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>82,186,745,709</td>
+              <td>82,186,745,709</td>
+              <td>82,186,745,709</td>
+              <td>-</td>
+              <td>82,186,745,709</td>
+              <td>20,966,930,077</td>
+              <td>2,117,905,041</td>
+              <td>23,084,835,118</td>
+              <td>59,101,910,591</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr style="height:16.0pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:15.5pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:15.0pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:20.0pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>Yogyakarta, 11 April 2025</td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:20.0pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>Asman Anggaran</td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:20.0pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>Fajar Sulihanti</td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr style="height:20.0pt;">
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>Nipp. 51958</td><td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
